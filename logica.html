@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica e Dedução - LogicPlay</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#6c47ff">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="lp-navbar navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="logo"><i class="bi bi-puzzle-fill"></i></span>
+        <span class="logo-text">Logic<span>Play</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="desafios.html">Desafios</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          <li class="nav-item ms-lg-2">
+            <span class="stat-pill"><i class="bi bi-star-fill text-warning"></i><span id="navTotalScore">0</span><small class="text-muted-lp">pts</small></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container" style="max-width:880px;">
+
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <a href="desafios.html" class="btn btn-lp btn-lp-ghost"><i class="bi bi-arrow-left"></i></a>
+        <div>
+          <span class="eyebrow">Joguinho 2</span>
+          <h1 class="section-title mb-0">🤔 Qual é a resposta?</h1>
+        </div>
+      </div>
+
+      <div class="game-shell">
+
+        <div class="game-header">
+          <div>
+            <div class="text-muted-lp small">Questão <span id="qNum">1</span> de <span id="qTotal">8</span></div>
+            <h3 class="fw-bold mt-1 mb-0">Olhe a pergunta e escolha a resposta certa! 🎯</h3>
+          </div>
+          <div class="game-stats">
+            <div class="stat-pill"><i class="bi bi-check-circle-fill text-success"></i><div><span class="stat-label">Acertos</span><span id="hits">0</span></div></div>
+            <div class="stat-pill"><i class="bi bi-star-fill text-warning"></i><div><span class="stat-label">Pontos</span><span id="points">0</span></div></div>
+          </div>
+        </div>
+
+        <div class="progress-thin"><div class="bar" id="progressBar" style="width:12%"></div></div>
+
+        <div class="question-box kids fade-in" id="questionBox">
+          <div class="q-text" id="qText"></div>
+        </div>
+
+        <div class="choices three-cols" id="choices"></div>
+
+        <div class="feedback-area" id="feedback"></div>
+
+        <div class="d-flex justify-content-end mt-3">
+          <button class="btn btn-lp btn-lp-primary" id="nextBtn" disabled><i class="bi bi-arrow-right me-1"></i> Próxima</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="modal fade lp-modal" id="resultModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">Fim de Jogo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <div class="trophy" id="resultTrophy">🏆</div>
+          <h3 class="fw-bold mb-2" id="resultTitle">Parabéns!</h3>
+          <p class="text-muted-lp" id="resultMessage">Você concluiu o desafio.</p>
+          <div class="stat-pill d-inline-flex mt-2"><i class="bi bi-star-fill text-warning"></i><strong id="resultScore">0</strong> pontos</div>
+        </div>
+        <div class="modal-footer border-0 justify-content-center pb-4">
+          <a href="desafios.html" class="btn btn-lp btn-lp-outline">Voltar aos desafios</a>
+          <button class="btn btn-lp btn-lp-primary" onclick="location.reload()"><i class="bi bi-arrow-clockwise me-1"></i> Jogar novamente</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/logica.js"></script>
+</body>
+</html>

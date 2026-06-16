@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafios - LogicPlay</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#6c47ff">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="lp-navbar navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="logo"><i class="bi bi-puzzle-fill"></i></span>
+        <span class="logo-text">Logic<span>Play</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="desafios.html">Desafios</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          <li class="nav-item ms-lg-2">
+            <span class="stat-pill"><i class="bi bi-star-fill text-warning"></i><span id="navTotalScore">0</span><small class="text-muted-lp">pts</small></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="eyebrow">Joguinhos</span>
+        <h1 class="section-title">Qual joguinho você vai jogar? 🎮</h1>
+        <p class="section-subtitle mx-auto">Escolha um dos quatro joguinhos divertidos abaixo e bora brincar! 🎉</p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-6">
+          <div class="lp-card">
+            <div class="icon-wrap bg-grad-1"><i class="bi bi-grid-3x3-gap-fill"></i></div>
+            <div class="mb-2">
+              <span class="difficulty easy">Fácil 🌱</span>
+            </div>
+            <h3>🔢 O que vem agora?</h3>
+            <p>Olhe a sequência de figuras e descubra qual vem depois! Tipo: 🍎 🍎 🍎 ?</p>
+            <ul class="text-muted-lp small mb-3">
+              <li>10 desafios bem fáceis</li>
+              <li>Ganhe 10 pontos a cada acerto</li>
+              <li>Use bichinhos, cores e números</li>
+            </ul>
+            <a href="padroes.html" class="btn btn-lp btn-lp-primary w-100"><i class="bi bi-play-fill me-1"></i> Jogar!</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+          <div class="lp-card">
+            <div class="icon-wrap bg-grad-2"><i class="bi bi-diagram-3-fill"></i></div>
+            <div class="mb-2">
+              <span class="difficulty easy">Fácil 🌱</span>
+            </div>
+            <h3>🤔 Qual é a resposta?</h3>
+            <p>Perguntas curtinhas para pensar e escolher a resposta certa. Tipo: qual animal é o maior? 🐘</p>
+            <ul class="text-muted-lp small mb-3">
+              <li>8 perguntinhas legais</li>
+              <li>Ganhe 15 pontos a cada acerto</li>
+              <li>Sempre 3 opções com figurinhas</li>
+            </ul>
+            <a href="logica.html" class="btn btn-lp btn-lp-primary w-100"><i class="bi bi-play-fill me-1"></i> Jogar!</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+          <div class="lp-card">
+            <div class="icon-wrap bg-grad-3"><i class="bi bi-list-ol"></i></div>
+            <div class="mb-2">
+              <span class="difficulty medium">Médio 🌟</span>
+            </div>
+            <h3>📋 Coloque em ordem!</h3>
+            <p>Arraste os passos na ordem certa. Tipo: como escovar os dentes 🦷 ou fazer um sanduíche 🥪</p>
+            <ul class="text-muted-lp small mb-3">
+              <li>5 tarefas do dia a dia</li>
+              <li>Ganhe 20 pontos a cada acerto</li>
+              <li>Só 4 passinhos em cada uma</li>
+            </ul>
+            <a href="algoritmo.html" class="btn btn-lp btn-lp-primary w-100"><i class="bi bi-play-fill me-1"></i> Jogar!</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+          <div class="lp-card">
+            <div class="icon-wrap bg-grad-4"><i class="bi bi-robot"></i></div>
+            <div class="mb-2">
+              <span class="difficulty medium">Médio 🌟</span>
+            </div>
+            <h3>🤖 Ajude o robôzinho!</h3>
+            <p>Use as setinhas (⬆️⬇️⬅️➡️) para o robô chegar até o alvo 🎯. Desvie das paredinhas pretas!</p>
+            <ul class="text-muted-lp small mb-3">
+              <li>4 mini labirintos</li>
+              <li>Ganhe 25 pontos a cada fase</li>
+              <li>Com dicas em todas as fases!</li>
+            </ul>
+            <a href="robo.html" class="btn btn-lp btn-lp-primary w-100"><i class="bi bi-play-fill me-1"></i> Jogar!</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROGRESS BOARD -->
+      <div class="mt-5">
+        <span class="eyebrow">Seu progresso</span>
+        <h2 class="section-title">Acompanhe seu desempenho</h2>
+        <div class="lp-card mt-3">
+          <div class="row g-4 text-center" id="progressBoard">
+            <div class="col-md-3 col-6">
+              <h3 class="fw-bold mb-1" id="bScore">0</h3>
+              <small class="text-muted-lp">Pontuação total</small>
+            </div>
+            <div class="col-md-3 col-6">
+              <h3 class="fw-bold mb-1" id="bGames">0</h3>
+              <small class="text-muted-lp">Jogos disputados</small>
+            </div>
+            <div class="col-md-3 col-6">
+              <h3 class="fw-bold mb-1" id="bBest">0</h3>
+              <small class="text-muted-lp">Melhor pontuação</small>
+            </div>
+            <div class="col-md-3 col-6">
+              <h3 class="fw-bold mb-1" id="bCat">0/4</h3>
+              <small class="text-muted-lp">Categorias jogadas</small>
+            </div>
+          </div>
+          <hr class="my-4">
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-lp btn-lp-outline" onclick="if(confirm('Tem certeza que deseja zerar todo o progresso?')){resetProgress();location.reload();}"><i class="bi bi-arrow-counterclockwise me-1"></i> Reiniciar progresso</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="lp-footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; 2026 LogicPlay — Atividade Extensionista UNIFACEAR.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    (function renderBoard() {
+      const p = getProgress();
+      document.getElementById('bScore').textContent = p.totalScore || 0;
+      const games = Object.values(p.games || {});
+      const plays = games.reduce((a, b) => a + (b.plays || 0), 0);
+      const best = games.reduce((m, g) => Math.max(m, g.highScore || 0), 0);
+      document.getElementById('bGames').textContent = plays;
+      document.getElementById('bBest').textContent = best;
+      document.getElementById('bCat').textContent = `${Object.keys(p.games || {}).length}/4`;
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback - LogicPlay</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#6c47ff">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="lp-navbar navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="logo"><i class="bi bi-puzzle-fill"></i></span>
+        <span class="logo-text">Logic<span>Play</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="desafios.html">Desafios</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          <li class="nav-item ms-lg-2">
+            <span class="stat-pill"><i class="bi bi-star-fill text-warning"></i><span id="navTotalScore">0</span><small class="text-muted-lp">pts</small></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container" style="max-width:880px;">
+      <div class="text-center mb-5">
+        <span class="eyebrow">Feedback</span>
+        <h1 class="section-title">Conte-nos o que você achou!</h1>
+        <p class="section-subtitle mx-auto">Seu retorno é fundamental para avaliarmos a aceitação e o impacto do LogicPlay junto aos estudantes.</p>
+      </div>
+
+      <div class="lp-card lp-form">
+        <form id="feedbackForm" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="nome" class="form-label">Nome (opcional)</label>
+              <input type="text" class="form-control" id="nome" placeholder="Como podemos te chamar?">
+            </div>
+            <div class="col-md-6">
+              <label for="idade" class="form-label">Idade</label>
+              <select class="form-select" id="idade" required>
+                <option value="">Selecione...</option>
+                <option>Até 12 anos</option>
+                <option>13 a 15 anos</option>
+                <option>16 a 18 anos</option>
+                <option>Maior de 18 anos</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label for="serie" class="form-label">Ano escolar</label>
+              <select class="form-select" id="serie">
+                <option value="">Selecione...</option>
+                <option>Ensino Fundamental II</option>
+                <option>Ensino Médio</option>
+                <option>Ensino Superior</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="favorito" class="form-label">Qual jogo você mais gostou?</label>
+              <select class="form-select" id="favorito">
+                <option value="">Selecione...</option>
+                <option>Padrões e Sequências</option>
+                <option>Lógica e Dedução</option>
+                <option>Construção de Algoritmos</option>
+                <option>Robô Programável</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label d-block">Como você avalia o LogicPlay?</label>
+              <div class="rating-stars" id="ratingStars">
+                <i class="bi bi-star-fill star" data-val="1"></i>
+                <i class="bi bi-star-fill star" data-val="2"></i>
+                <i class="bi bi-star-fill star" data-val="3"></i>
+                <i class="bi bi-star-fill star" data-val="4"></i>
+                <i class="bi bi-star-fill star" data-val="5"></i>
+                <input type="hidden" id="rating" value="0">
+              </div>
+              <small class="text-muted-lp" id="ratingLabel">Clique para avaliar</small>
+            </div>
+
+            <div class="col-12">
+              <label for="aprendeu" class="form-label">O que você aprendeu? (engajamento e compreensão)</label>
+              <textarea class="form-control" id="aprendeu" rows="3" placeholder="Ex.: Aprendi a organizar passos para resolver problemas..."></textarea>
+            </div>
+
+            <div class="col-12">
+              <label for="dificuldade" class="form-label">Qual jogo achou mais difícil? Por quê?</label>
+              <textarea class="form-control" id="dificuldade" rows="2"></textarea>
+            </div>
+
+            <div class="col-12">
+              <label for="sugestao" class="form-label">Sugestões para melhorar a plataforma</label>
+              <textarea class="form-control" id="sugestao" rows="3"></textarea>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Você recomendaria o LogicPlay para um colega?</label>
+              <div class="d-flex gap-3 flex-wrap">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="rec" id="recSim" value="Sim">
+                  <label class="form-check-label" for="recSim">Sim, com certeza!</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="rec" id="recTalvez" value="Talvez">
+                  <label class="form-check-label" for="recTalvez">Talvez</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="rec" id="recNao" value="Não">
+                  <label class="form-check-label" for="recNao">Não</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <button class="btn btn-lp btn-lp-primary px-4" type="submit"><i class="bi bi-send me-1"></i> Enviar feedback</button>
+              <button class="btn btn-lp btn-lp-ghost px-4 ms-2" type="reset"><i class="bi bi-arrow-counterclockwise me-1"></i> Limpar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- THANK YOU -->
+      <div class="lp-card mt-4 text-center" id="thankCard" style="display:none;background:linear-gradient(135deg, var(--lp-primary), var(--lp-secondary));color:#fff;border:none;">
+        <div style="font-size:3rem;">🎉</div>
+        <h3 class="fw-bold" style="color:#fff;">Feedback enviado!</h3>
+        <p class="mb-3" style="color:rgba(255,255,255,0.95);">Obrigado por contribuir com o projeto LogicPlay. Sua opinião é muito importante para melhorarmos cada vez mais!</p>
+        <a href="desafios.html" class="btn btn-lp btn-lp-ghost"><i class="bi bi-arrow-left me-1"></i> Voltar aos desafios</a>
+      </div>
+
+      <!-- STATS SUMMARY -->
+      <div class="stats-summary mt-5">
+        <div class="text-center mb-4">
+          <span class="eyebrow">Resumo das avaliações</span>
+          <h2 class="section-title mb-0">Como nosso público avaliou 📊</h2>
+        </div>
+
+        <div class="row g-4 align-items-center">
+          <div class="col-md-4">
+            <div class="stat-big">
+              <div class="num" id="avgRating">0.0</div>
+              <div class="sub-stars" id="avgStars">★★★★★</div>
+              <span class="label">Média geral</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-big">
+              <div class="num warning" id="totalCount">0</div>
+              <span class="label">Avaliações recebidas</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-big">
+              <div class="num" id="recommendPct">0%</div>
+              <span class="label">Recomendam a plataforma</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="distribution" id="distribution"></div>
+
+        <div class="text-center mt-4">
+          <small class="text-muted-lp"><i class="bi bi-info-circle me-1"></i>Dados baseados em <span id="totalCount2">0</span> avaliações de crianças, pais e educadores.</small>
+        </div>
+      </div>
+
+      <!-- TESTIMONIALS -->
+      <div class="mt-5">
+        <div class="text-center mb-4">
+          <span class="eyebrow">Depoimentos</span>
+          <h2 class="section-title">O que estão dizendo sobre o LogicPlay 💬</h2>
+          <p class="text-muted-lp">Veja o que crianças, pais e professores estão achando da plataforma!</p>
+        </div>
+
+        <div class="row g-3" id="testimonialsGrid"></div>
+
+        <div class="text-center mt-4">
+          <button class="btn btn-lp btn-lp-outline" id="loadMoreBtn">
+            <i class="bi bi-chevron-down me-1"></i> Mostrar mais depoimentos
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="lp-footer">
+    <div class="container">
+      <div class="footer-bottom">&copy; 2026 LogicPlay — Atividade Extensionista UNIFACEAR.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    // RATING
+    const RATING_LABELS = ['Clique para avaliar', 'Péssimo', 'Ruim', 'Razoável', 'Bom', 'Excelente!'];
+    const stars = document.querySelectorAll('#ratingStars .star');
+    const ratingInput = document.getElementById('rating');
+    const ratingLabel = document.getElementById('ratingLabel');
+    let selectedRating = 0;
+
+    function paintStars(n) {
+      stars.forEach(s => {
+        s.classList.toggle('active', parseInt(s.dataset.val) <= n);
+      });
+      ratingLabel.textContent = RATING_LABELS[n];
+    }
+
+    stars.forEach(s => {
+      s.addEventListener('mouseenter', () => paintStars(parseInt(s.dataset.val)));
+      s.addEventListener('mouseleave', () => paintStars(selectedRating));
+      s.addEventListener('click', () => {
+        selectedRating = parseInt(s.dataset.val);
+        ratingInput.value = selectedRating;
+        paintStars(selectedRating);
+      });
+    });
+
+    // SUBMIT
+    document.getElementById('feedbackForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const idade = document.getElementById('idade').value;
+      if (!idade) {
+        document.getElementById('idade').focus();
+        document.getElementById('idade').classList.add('is-invalid');
+        return;
+      }
+      if (selectedRating === 0) {
+        ratingLabel.style.color = 'var(--lp-danger)';
+        ratingLabel.textContent = 'Por favor, selecione uma avaliação!';
+        return;
+      }
+
+      // store locally to demonstrate persistence
+      const feedback = {
+        nome: document.getElementById('nome').value,
+        idade,
+        serie: document.getElementById('serie').value,
+        favorito: document.getElementById('favorito').value,
+        rating: selectedRating,
+        aprendeu: document.getElementById('aprendeu').value,
+        dificuldade: document.getElementById('dificuldade').value,
+        sugestao: document.getElementById('sugestao').value,
+        recomendaria: document.querySelector('input[name="rec"]:checked')?.value || ''
+      };
+      const all = JSON.parse(localStorage.getItem('logicplay_feedback') || '[]');
+      all.push({ ...feedback, ts: new Date().toISOString() });
+      localStorage.setItem('logicplay_feedback', JSON.stringify(all));
+
+      document.getElementById('feedbackForm').style.display = 'none';
+      document.getElementById('thankCard').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('idade').addEventListener('change', () => {
+      document.getElementById('idade').classList.remove('is-invalid');
+    });
+
+    // ============== DEPOIMENTOS FICTÍCIOS ==============
+    const TESTIMONIALS = [
+      {
+        name: 'Heitor',
+        age: 5,
+        tag: 'Criança • 5 anos',
+        tagClass: 'tag-kid',
+        rating: 5,
+        text: 'eu jogei o robozim e foi muinto legual!!! minha mae ajudo um poco mais eu fiz quaze tudo sozim 🤖🤖🤖',
+        color: 'linear-gradient(135deg, #ffc857, #ff9248)'
+      },
+      {
+        name: 'Profª Carla M.',
+        age: 38,
+        tag: 'Professora',
+        tagClass: 'tag-teacher',
+        rating: 5,
+        text: 'Apliquei o LogicPlay com minha turma do 3º ano e os resultados foram surpreendentes. A gamificação prende a atenção das crianças e os desafios estimulam o raciocínio de forma natural. Recomendo demais!',
+        color: 'linear-gradient(135deg, #ff5cab, #ff8d6b)'
+      },
+      {
+        name: 'Lívia',
+        age: 8,
+        tag: 'Criança • 8 anos',
+        tagClass: 'tag-kid',
+        rating: 4,
+        text: 'gostei muito do jogo de colocar em ordem o do bolo, eu ja sabia fazer bolo com minha vó hihi 🎂 mas queria que tivesse mais joguinhos diferentes',
+        color: 'linear-gradient(135deg, #6c47ff, #b87dff)'
+      },
+      {
+        name: 'Roberto S.',
+        age: 42,
+        tag: 'Pai • 42 anos',
+        tagClass: 'tag-adult',
+        rating: 4,
+        text: 'Excelente iniciativa! Meu filho de 9 anos se diverte enquanto exercita o raciocínio. Como sugestão, seria legal ter mais fases no jogo do robô e talvez uma trilha sonora opcional. No mais, parabéns!',
+        color: 'linear-gradient(135deg, #00d4a8, #00b8d9)'
+      },
+      {
+        name: 'Pedrinho',
+        age: 6,
+        tag: 'Criança • 6 anos',
+        tagClass: 'tag-kid',
+        rating: 5,
+        text: 'eu adorrrei o robozim ⬆️⬇️⬅️➡️ ele anda igual o meu video game!!! quero jogar mais',
+        color: 'linear-gradient(135deg, #6c47ff, #ff5cab)'
+      },
+      {
+        name: 'Maria Eduarda',
+        age: 10,
+        tag: 'Criança • 10 anos',
+        tagClass: 'tag-kid',
+        rating: 3,
+        text: 'É legal mas pra mim ficou um pouco fácil. Acertei tudo do primeiro jogo bem rápido. Queria desafios mais difíceis pra quem tem 10 anos, tipo um modo "expert" 😅',
+        color: 'linear-gradient(135deg, #ff5cab, #6c47ff)'
+      },
+      {
+        name: 'Profª Renata',
+        age: 45,
+        tag: 'Pedagoga',
+        tagClass: 'tag-teacher',
+        rating: 5,
+        text: 'Como pedagoga, vejo o LogicPlay como uma ferramenta valiosa para desenvolver pensamento computacional desde cedo. As atividades estão alinhadas com a BNCC e os alunos demonstram alto engajamento.',
+        color: 'linear-gradient(135deg, #00d4a8, #6c47ff)'
+      },
+      {
+        name: 'Júlia',
+        age: 5,
+        tag: 'Criança • 5 anos',
+        tagClass: 'tag-kid',
+        rating: 4,
+        text: 'eu acertei a maçã 🍎🍎🍎🍎 e a estrelinha tambem ⭐⭐ a tia falo que eu sou inteligente 💖 mas eu naum sabia ler a perguta toda',
+        color: 'linear-gradient(135deg, #ffc857, #ff5cab)'
+      },
+      {
+        name: 'Fernanda L.',
+        age: 35,
+        tag: 'Mãe • 35 anos',
+        tagClass: 'tag-adult',
+        rating: 5,
+        text: 'Substituiu o tempo de tela passivo do meu filho! Ele agora prefere o LogicPlay aos vídeos do YouTube. Como mãe, vejo que ele está pensando mais antes de responder em outras situações também.',
+        color: 'linear-gradient(135deg, #ff5cab, #ffc857)'
+      },
+      {
+        name: 'Caio',
+        age: 7,
+        tag: 'Criança • 7 anos',
+        tagClass: 'tag-kid',
+        rating: 5,
+        text: 'O joguinho de qual é maior eu ja sabia, mas o do robô eu errei mas depois acertei!!! to com 145 pontos 🌟',
+        color: 'linear-gradient(135deg, #00d4a8, #ffc857)'
+      },
+      {
+        name: 'Dr. André F.',
+        age: 50,
+        tag: 'Psicopedagogo',
+        tagClass: 'tag-adult',
+        rating: 4,
+        text: 'A plataforma trabalha funções executivas como atenção, memória de trabalho e flexibilidade mental — tudo de forma lúdica. Para evolução, sugiro incluir narração de áudio nas perguntas, pois muitas crianças de 5-6 anos ainda não leem com fluência.',
+        color: 'linear-gradient(135deg, #6c47ff, #00d4a8)'
+      },
+      {
+        name: 'Sophia',
+        age: 6,
+        tag: 'Criança • 6 anos',
+        tagClass: 'tag-kid',
+        rating: 5,
+        text: 'minha pofessora mostro na escola e todo mundo gosto. eu sou a que mais acerta os pradões na minha sala hehe 😊',
+        color: 'linear-gradient(135deg, #ff8d6b, #6c47ff)'
+      },
+      {
+        name: 'Marcos T.',
+        age: 28,
+        tag: 'Tio • 28 anos',
+        tagClass: 'tag-adult',
+        rating: 4,
+        text: 'Sou desenvolvedor e usei a plataforma com meu sobrinho de 8 anos. Foi muito legal ver ele entender o conceito de "sequência de instruções" no jogo do robô. Faltam só algumas animações e um sistema de medalhas pra ficar perfeito.',
+        color: 'linear-gradient(135deg, #00b8d9, #6c47ff)'
+      },
+      {
+        name: 'Bento',
+        age: 9,
+        tag: 'Criança • 9 anos',
+        tagClass: 'tag-kid',
+        rating: 5,
+        text: 'O jogo do sanduíche foi engraçado kkk eu errei e botei o queijo antes do pão. Mas o do robô eu fiz com o caminho ótimo e ganhei bônus!! 🏆',
+        color: 'linear-gradient(135deg, #ffc857, #00d4a8)'
+      },
+      {
+        name: 'Profª Sandra',
+        age: 52,
+        tag: 'Professora • Ed. Infantil',
+        tagClass: 'tag-teacher',
+        rating: 5,
+        text: 'Trabalho com crianças de 5 a 7 anos há 25 anos e raramente vejo uma ferramenta digital tão bem pensada para essa faixa. Os botões grandes, as cores e os emojis tornam tudo acessível. Parabéns!',
+        color: 'linear-gradient(135deg, #ff5cab, #00b8d9)'
+      },
+      {
+        name: 'Patrícia M.',
+        age: 39,
+        tag: 'Mãe • 39 anos',
+        tagClass: 'tag-adult',
+        rating: 3,
+        text: 'A ideia é ótima e meus dois filhos gostaram. Mas senti falta de um app pra celular — em casa todo mundo usa tablet ou telefone. Se tivesse versão mobile seria 5 estrelas com certeza!',
+        color: 'linear-gradient(135deg, #b87dff, #ff8d6b)'
+      },
+      {
+        name: 'Théo',
+        age: 8,
+        tag: 'Criança • 8 anos',
+        tagClass: 'tag-kid',
+        rating: 4,
+        text: 'gostei dos joguinhos, mas queria poder jogar com meu amigo ao mesmo tempo pra ver quem ganha mais pontos kkk 🎮',
+        color: 'linear-gradient(135deg, #00b8d9, #ffc857)'
+      }
+    ];
+
+    const grid = document.getElementById('testimonialsGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const INITIAL_COUNT = 5;
+    let shown = INITIAL_COUNT;
+
+    function renderStarsText(n) {
+      let s = '';
+      for (let i = 0; i < 5; i++) s += i < n ? '★' : '☆';
+      return s;
+    }
+
+    function makeCard(t) {
+      const initial = t.name.charAt(0).toUpperCase();
+      const col = document.createElement('div');
+      col.className = 'col-md-6 col-lg-4';
+      col.innerHTML = `
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" style="background:${t.color};">${initial}</div>
+            <div class="testimonial-info">
+              <p class="name">${t.name}</p>
+              <span class="meta">${t.tag}</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">${renderStarsText(t.rating)}</div>
+          <p class="testimonial-text">${t.text}</p>
+          <span class="testimonial-tag ${t.tagClass}">${t.tagClass === 'tag-kid' ? 'Criança' : t.tagClass === 'tag-teacher' ? 'Educador' : 'Família'}</span>
+        </div>
+      `;
+      return col;
+    }
+
+    function renderTestimonials() {
+      grid.innerHTML = '';
+      TESTIMONIALS.slice(0, shown).forEach(t => grid.appendChild(makeCard(t)));
+      if (shown >= TESTIMONIALS.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.innerHTML = `<i class="bi bi-chevron-down me-1"></i> Mostrar mais depoimentos (+${TESTIMONIALS.length - shown})`;
+      }
+    }
+
+    loadMoreBtn.addEventListener('click', () => {
+      shown = TESTIMONIALS.length;
+      renderTestimonials();
+    });
+
+    // ============== ESTATÍSTICAS ==============
+    function renderStats() {
+      const total = TESTIMONIALS.length;
+      const sum = TESTIMONIALS.reduce((acc, t) => acc + t.rating, 0);
+      const avg = sum / total;
+
+      // average rating
+      document.getElementById('avgRating').textContent = avg.toFixed(1).replace('.', ',');
+      const avgRounded = Math.round(avg);
+      let starsHtml = '';
+      for (let i = 1; i <= 5; i++) starsHtml += i <= avgRounded ? '★' : '☆';
+      document.getElementById('avgStars').textContent = starsHtml;
+
+      // total
+      document.getElementById('totalCount').textContent = total;
+      document.getElementById('totalCount2').textContent = total;
+
+      // recommend % (rating >= 4 counts as "recomendaria")
+      const recommend = TESTIMONIALS.filter(t => t.rating >= 4).length;
+      const pct = Math.round((recommend / total) * 100);
+      document.getElementById('recommendPct').textContent = pct + '%';
+
+      // distribution
+      const dist = [5, 4, 3, 2, 1].map(stars => ({
+        stars,
+        count: TESTIMONIALS.filter(t => t.rating === stars).length
+      }));
+      const maxCount = Math.max(...dist.map(d => d.count), 1);
+      const distEl = document.getElementById('distribution');
+      distEl.innerHTML = dist.map(d => {
+        const width = (d.count / maxCount) * 100;
+        return `
+          <div class="dist-row">
+            <div class="dist-label">${d.stars} <i class="bi bi-star-fill"></i></div>
+            <div class="dist-bar"><div class="fill" style="width:${width}%"></div></div>
+            <div class="dist-count">${d.count}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    renderStats();
+    renderTestimonials();
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robô Programável - LogicPlay</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#6c47ff">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="lp-navbar navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="logo"><i class="bi bi-puzzle-fill"></i></span>
+        <span class="logo-text">Logic<span>Play</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="desafios.html">Desafios</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          <li class="nav-item ms-lg-2">
+            <span class="stat-pill"><i class="bi bi-star-fill text-warning"></i><span id="navTotalScore">0</span><small class="text-muted-lp">pts</small></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container" style="max-width:980px;">
+
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <a href="desafios.html" class="btn btn-lp btn-lp-ghost"><i class="bi bi-arrow-left"></i></a>
+        <div>
+          <span class="eyebrow">Joguinho 4</span>
+          <h1 class="section-title mb-0">🤖 Ajude o robôzinho!</h1>
+        </div>
+      </div>
+
+      <div class="game-shell">
+
+        <div class="game-header">
+          <div>
+            <div class="text-muted-lp small">Fase <span id="phaseNum">1</span> de <span id="phaseTotal">4</span></div>
+            <h3 class="fw-bold mt-1 mb-0">Ajude o robô 🤖 a chegar no 🎯!</h3>
+            <p class="text-muted-lp mb-0 mt-1">Clique nas setas para criar o caminho. Depois clique em EXECUTAR!</p>
+          </div>
+          <div class="game-stats">
+            <div class="stat-pill"><i class="bi bi-flag-fill text-success"></i><div><span class="stat-label">Fases</span><span id="hits">0</span></div></div>
+            <div class="stat-pill"><i class="bi bi-star-fill text-warning"></i><div><span class="stat-label">Pontos</span><span id="points">0</span></div></div>
+          </div>
+        </div>
+
+        <div class="progress-thin"><div class="bar" id="progressBar" style="width:25%"></div></div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="robot-stage">
+              <div class="maze-grid" id="mazeGrid"></div>
+              <div class="text-center mt-3" style="background:#fff3cd;border-radius:14px;padding:0.7rem 1rem;font-weight:600;color:#856404;">
+                <i class="bi bi-lightbulb-fill"></i> <span id="levelHint">Dica</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="command-pad">
+              <h5 class="fw-bold mb-3">Comandos disponíveis</h5>
+              <div class="command-buttons">
+                <button class="cmd-btn" data-cmd="up"><i class="bi bi-arrow-up"></i> Cima</button>
+                <button class="cmd-btn" data-cmd="down"><i class="bi bi-arrow-down"></i> Baixo</button>
+                <button class="cmd-btn" data-cmd="left"><i class="bi bi-arrow-left"></i> Esquerda</button>
+                <button class="cmd-btn" data-cmd="right"><i class="bi bi-arrow-right"></i> Direita</button>
+              </div>
+              <h6 class="fw-bold mt-3 mb-2">Sua programação <small class="text-muted-lp" id="cmdCount">(0 comandos)</small></h6>
+              <div class="cmd-queue" id="cmdQueue">
+                <span class="cmd-empty">Clique nos comandos para programar o robô...</span>
+              </div>
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-lp btn-lp-ghost flex-fill" id="undoBtn"><i class="bi bi-arrow-counterclockwise"></i> Desfazer</button>
+                <button class="btn btn-lp btn-lp-outline flex-fill" id="clearBtn"><i class="bi bi-x-lg"></i> Limpar</button>
+              </div>
+              <button class="btn btn-lp btn-lp-primary w-100 mt-2" id="runBtn"><i class="bi bi-play-fill"></i> Executar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="feedback-area mt-3" id="feedback"></div>
+
+        <div class="d-flex justify-content-end mt-3">
+          <button class="btn btn-lp btn-lp-primary" id="nextBtn" disabled><i class="bi bi-arrow-right me-1"></i> Próxima fase</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="modal fade lp-modal" id="resultModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">Fim de Jogo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <div class="trophy" id="resultTrophy">🏆</div>
+          <h3 class="fw-bold mb-2" id="resultTitle">Parabéns!</h3>
+          <p class="text-muted-lp" id="resultMessage">Você concluiu o desafio.</p>
+          <div class="stat-pill d-inline-flex mt-2"><i class="bi bi-star-fill text-warning"></i><strong id="resultScore">0</strong> pontos</div>
+        </div>
+        <div class="modal-footer border-0 justify-content-center pb-4">
+          <a href="desafios.html" class="btn btn-lp btn-lp-outline">Voltar aos desafios</a>
+          <button class="btn btn-lp btn-lp-primary" onclick="location.reload()"><i class="bi bi-arrow-clockwise me-1"></i> Jogar novamente</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/robo.js"></script>
+</body>
+</html>
